@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Artykuły ARKADIUSZ KLIMEK</title>
+  <link rel="stylesheet" href="src/style.css">
+</head>
+<body class="bg-white min-h-screen flex flex-col font-roboto">
+  <nav class="bg-black shadow-lg shadow-black/50 px-4 py-3 flex justify-between items-center">
+    <ul id="nav-list" class="flex gap-4 items-center"></ul>
+  </nav>
+
+  <main class="flex-grow container mx-auto py-6 px-4">
+    <header class="flex justify-between items-center mb-6">
+      <h1 class="text-2xl font-bold hover:text-3xl ease-in duration-50">LISTA ARTYKUŁÓW</h1>
+      <button id="add-article-btn" class="bg-green-500 shadow-lg shadow-green-500/50 text-white px-4 py-2 rounded hover:bg-green-600 shadow-green-500/50 transition text-white " type="submit">
+        DODAJ ARTYKUŁ
+      </button>
+    </header>
+
+    <section class="articles flex flex-col gap-4"></section>
+  </main>
+
+  <dialog id="article-modal" class="h-full shadow-lg shadow-black p-0 rounded-lg overflow-hidden">
+    <form method="dialog" id="article-form" class="bg-white p-6 flex flex-col gap-4">
+      <h2 id="modal-title" class="text-xl font-semibold"></h2>
+
+      <input type="hidden" id="article-id">
+
+      <label class="flex flex-col">
+        Tytuł
+        <input id="title" class="border rounded px-3 py-2" required>
+      </label>
+
+      <label class="flex flex-col">
+        Podtytuł
+        <input id="subtitle" name="subtitle" class="border rounded px-3 py-2" required>
+      </label>
+
+      <label class="flex flex-col">
+        Autor
+        <input id="author" class="border rounded px-3 py-2" required>
+      </label>
+
+      
+      <label class="flex flex-col">
+        Treść
+        <textarea id="content" rows="5" class="border rounded px-3 py-2" required></textarea>
+      </label>
+
+      <footer class="mt-4 flex justify-end gap-2">
+
+        <button type="submit" class="bg-green-500 shadow-lg shadow-green-500/50 px-4 py-2 rounded hover:bg-green-600 shadow-green-500/50 transition hover:underline">
+          Zapisz
+        </button>
+
+        <button type="button" id="cancel-btn" class="bg-black shadow-lg shadow-black/50 px-4 py-2 rounded hover:bg-zinc-800 transition text-white hover:underline">
+          Anuluj
+        </button>
+
+      </footer>
+    </form>
+  </dialog>
+
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>

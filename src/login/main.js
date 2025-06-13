@@ -1,20 +1,15 @@
-import {supabase } from '../api.js';
+import { supabase } from '../api.js';
 
-console.log('nested');
-document.querySelector('form').addEventListener('submit', async (event) => {
-    event.preventDefault();
-    const formData = new FormData(event.target);
-    const email = formData.get('email');
-    const password = formData.get('password');
-    
-    const { data, error } = await supabase.auth.signInWithPassword({
-        email: 'example@email.com',
-        password: 'example-password',
-    });
-    if (error) {
-        console.error('Error during login:', error);
-        alert('Login failed. Please check your credentials.');
-    }
-
+document.getElementById('login-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const fd = new FormData(e.target);
+  const { error } = await supabase.auth.signInWithPassword({
+    email: fd.get('email'),
+    password: fd.get('password')
+  });
+  if (error) {
+    alert('Błąd: ' + error.message);
+  } else {
     window.location.href = '/';
-}
+  }
+});
